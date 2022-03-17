@@ -58,7 +58,7 @@ if any(MoveType in s for s in UserPokemonTypeList):
 else:
     STAB = 1
     
-Type = 1
+Type = 0
 if MoveType == "Fire" and (EnemyPkmnType1 == "Grass" or EnemyPkmnType1 == "Ice" or EnemyPkmnType1 == "Bug" or EnemyPkmnType1 == "Steel"):
     Type = 2
     if Type == 2 and (EnemyPkmnType2 == "Grass" or EnemyPkmnType2 == "Ice" or EnemyPkmnType2 == "Bug" or EnemyPkmnType2 == "Steel"):
@@ -358,7 +358,7 @@ elif MoveType == "Electric" and (EnemyPkmnType1 == "Ground"):
 elif MoveType == "Electric" and EnemyPkmnType1 == "Ground":
     Type = 0
     
-if MoveType == "Normal":
+if MoveType == "Normal" and EnemyPkmnType1 != "Ghost":
     Type = 1
 elif MoveType == "Normal" and (EnemyPkmnType1 == "Fight"):
     Type = 0.5
