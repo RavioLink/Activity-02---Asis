@@ -58,7 +58,7 @@ if any(MoveType in s for s in UserPokemonTypeList):
 else:
     STAB = 1
     
-Type = 0
+Type = 1
 if MoveType == "Fire" and (EnemyPkmnType1 == "Grass" or EnemyPkmnType1 == "Ice" or EnemyPkmnType1 == "Bug" or EnemyPkmnType1 == "Steel"):
     Type = 2
     if Type == 2 and (EnemyPkmnType2 == "Grass" or EnemyPkmnType2 == "Ice" or EnemyPkmnType2 == "Bug" or EnemyPkmnType2 == "Steel"):
@@ -370,12 +370,18 @@ elif MoveType == "Normal" and EnemyPkmnType1 == "Ghost":
 Other = 1
 modifier = Targets * Weather * Badge * Critical * rendom * STAB * Type * Burn * Other
 Damage = ((((((2*PkmnLevel)/5)+2)*(Power)*(ASpecial/DDef))/50)+2) * modifier
-print(round(Damage))
-print(Weather)
-print(Targets)
-print(UserPokemonTypeList)
-print(STAB)
-print(Type)
-print(Burn)
+
+if Type == 0:
+    print(MoveName + " doesn't affect " + EnemyPkmnName)
+elif Type < 1 and Type > 0:
+    print(EnemyPkmnName + " took " + str(round(Damage)))
+elif Type >= 2:
+    print("It's super effective! " + EnemyPkmnName + " took " + str(round(Damage)))
+else:
+    print(round(Damage))
+    
+
+#print(round(Damage))
+
 
 
